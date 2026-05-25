@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Регистрация в каталоге</title>
+</head>
+<body>
+  <h1 id="catalog-title">Каталог</h1>
+  <label>Email <input type="email" id="email" required></label><br>
+  <label>Пароль <input type="password" id="password" required></label><br>
+  <label>Компания <input type="text" id="company" required></label><br>
+  <label>Сайт <input type="url" id="website" required></label><br>
+  <button type="button" id="btn-register">Зарегистрироваться</button>
+  <script>
+    const p = new URLSearchParams(location.search);
+    document.getElementById('catalog-title').textContent = p.get('name') || 'Каталог';
+    document.getElementById('btn-register').onclick = () => {
+      const q = new URLSearchParams({
+        email: document.getElementById('email').value,
+        company: document.getElementById('company').value,
+        website: document.getElementById('website').value,
+        catalog: p.get('catalog') || 'demo'
+      });
+      location.href = 'verify.html?' + q.toString();
+    };
+  </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Подтверждение</title>
+</head>
+<body>
+  <h1>Код подтверждения</h1>
+  <p id="demo-code"></p>
+  <label>Код <input type="text" id="code"></label><br>
+  <button type="button" id="btn-verify">Подтвердить</button>
+  <script>
+    const code = String(Math.floor(100000 + Math.random() * 900000));
+    document.getElementById('demo-code').textContent = code;
+    const p = new URLSearchParams(location.search);
+    document.getElementById('btn-verify').onclick = () => {
+      const c = document.getElementById('code').value || code;
+      p.set('code', c);
+      location.href = 'profile.html?' + p.toString();
+    };
+  </script>
+</body>
+</html>

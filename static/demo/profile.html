@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Профиль</title>
+</head>
+<body>
+  <h1>Карточка компании</h1>
+  <label>Описание <textarea id="description"></textarea></label><br>
+  <label>Телефон <input type="tel" id="phone"></label><br>
+  <label>Услуги <input type="text" id="services"></label><br>
+  <p>Backlink:</p>
+  <div id="backlink-preview"></div>
+  <button type="button" id="btn-save-profile">Сохранить</button>
+  <script>
+    const p = new URLSearchParams(location.search);
+    const site = p.get('website') || 'https://example.com';
+    const cat = p.get('catalog') || 'catalog';
+    document.getElementById('backlink-preview').textContent =
+      'https://catalog.local/' + cat + '/company?url=' + encodeURIComponent(site);
+  </script>
+</body>
+</html>

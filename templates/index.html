@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Catalog Agent — регистрация в каталогах</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header>
+    <h1>Catalog Agent</h1>
+    <p class="sub">Автоматическая регистрация сайта в 10 каталогах · обратные ссылки</p>
+    <p id="mode-badge" class="badge"></p>
+  </header>
+
+  <section class="panel">
+    <h2>Добавить сайт</h2>
+    <form id="add-form">
+      <label>URL сайта <input type="url" id="site-url" placeholder="https://example.com" required></label>
+      <label>Email для регистраций <input type="email" id="site-email" placeholder="company@mail.ru" required></label>
+      <button type="submit" class="btn">Запустить регистрацию</button>
+    </form>
+    <p id="add-status" class="status"></p>
+  </section>
+
+  <section class="panel">
+    <h2>Каталоги (10)</h2>
+    <ul id="catalog-list" class="catalog-list"></ul>
+  </section>
+
+  <section class="panel">
+    <h2>Сайты и статусы</h2>
+    <button type="button" class="btn btn-secondary" id="btn-refresh">Обновить</button>
+    <div id="sites-table-wrap"></div>
+  </section>
+
+  <section class="panel">
+    <h2>Все регистрации (логины, пароли, ссылки)</h2>
+    <div id="regs-table-wrap"></div>
+  </section>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

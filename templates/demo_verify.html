@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Подтверждение — {{ catalog_name }}</title>
+  <style>
+    body { font-family: sans-serif; max-width: 520px; margin: 2rem auto; }
+    #demo-code { font-size: 1.5rem; font-weight: bold; color: #060; }
+    button { margin-top: 1rem; padding: 0.5rem 1rem; background: #888; color: #fff; border: none; }
+    input { width: 100%; padding: 0.4rem; }
+  </style>
+</head>
+<body>
+  <h1>Код подтверждения</h1>
+  <p>Код отправлен на почту. Для демо:</p>
+  <p id="demo-code">{{ code }}</p>
+  <label>Введите код <input type="text" id="code" maxlength="8"></label>
+  <button type="button" id="btn-verify">Подтвердить</button>
+  <script>
+    document.getElementById('btn-verify').onclick = function() {
+      const code = document.getElementById('code').value || document.getElementById('demo-code').textContent.trim();
+      window.location = '{{ profile_path }}?code=' + encodeURIComponent(code);
+    };
+  </script>
+</body>
+</html>
